@@ -1,0 +1,45 @@
+<h1>Edit parkingmeter</h1>
+ 
+<%= form_with(model: @parkingmeter, local: true) do |form| %>
+ 
+  <% if @parkingmeter.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@parkingmeter.errors.count, "error") %> prohibited
+        this parkingmeter from being saved:
+      </h2>
+      <ul>
+        <% @parkingmeter.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :longitude %><br>
+    <%= form.text_field :longitude %>
+  </p>
+ 
+  <p>
+    <%= form.label :latitude %><br>
+    <%= form.text_field :latitude %>
+  </p>
+ 
+  <p>
+    <%= form.label :status %><br>
+    <%= form.text_field :status %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', parkingmeters_path %>

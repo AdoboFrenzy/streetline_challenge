@@ -1,0 +1,24 @@
+parking meters / index
+
+<h1>Listing parkingmeters</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Longitude</th>
+    <th>Latitude</th>
+    <th>Status</th>
+  </tr>
+ 
+  <% @parkingmeters.each do |parkingmeter| %>
+    <tr>
+      <td><%= parkingmeter.name %></td>
+      <td><%= parkingmeter.longitude %></td>
+      <td><%= parkingmeter.latitude %></td>
+      <td><%= parkingmeter.status %></td>
+      <td> <%= link_to 'Show', parkingmeter_path(parkingmeter), method: :get %> </td>
+      <td> <%= link_to 'Edit', edit_parkingmeter_path(parkingmeter) %> </td>
+    </tr>
+    
+  <% end %>
+</table>

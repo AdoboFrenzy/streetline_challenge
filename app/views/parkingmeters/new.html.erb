@@ -1,0 +1,27 @@
+<h1>new parking meter</h1>
+
+<%= form_with scope: :parkingmeter, url: parkingmeters_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :longitude %><br>
+    <%= form.text_field :longitude %>
+  </p>
+ 
+  <p>
+    <%= form.label :latitude %><br>
+    <%= form.text_field :latitude %>
+  </p>
+
+  <p>
+    <%= form.label :status %> (on, off, or out-of-service)<br>
+    <%= form.text_field :status %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
