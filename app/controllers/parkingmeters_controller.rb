@@ -2,6 +2,17 @@ class ParkingmetersController < ApplicationController
 
     def index
         @parkingmeters = Parkingmeter.all
+
+        if params[:filter_status] != "" && params[:filter_status] != nil
+            @parkingmeters = @parkingmeters.select {|parkingmeter| parkingmeter.status == params[:filter_status]}
+        end
+        if params[:filter_color] != "" && params[:filter_color] != nil
+            @parkingmeters = @parkingmeters.select {|parkingmeter| parkingmeter.color == params[:filter_color]}
+        end
+        if params[:filter_height] != "" && params[:filter_height] != nil
+            @parkingmeters = @parkingmeters.select {|parkingmeter| parkingmeter.height == params[:filter_height].to_i}
+        end
+
     end
 
     def show
@@ -50,14 +61,14 @@ class ParkingmetersController < ApplicationController
     def destroy
         @parkingmeter = Parkingmeter.find(params[:id])
         @parkingmeter.destroy
-        
-        redirect_to parkingmeter_path
+
+        redirect_to parkingmeters_path
     end
 
     private
     
     def parkingmeter_params
-        params.require(:parkingmeter).permit(:name, :longitude, :latitude, :status)
+        params.require(:parkingmeter).permit(:name, :longitude, :latitude, :status, :color, :height, :filter_status, :filter_color, :filter_height)
     end
     
 end

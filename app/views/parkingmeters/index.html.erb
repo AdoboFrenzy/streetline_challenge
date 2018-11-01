@@ -1,13 +1,27 @@
-parking meters / index
+<td> <%= link_to 'Back to Map Overview!', streetline_index_path %> </td>
 
 <h1>Listing parkingmeters</h1>
- 
+
 <table>
+  <tr>
+    <%= form_tag '', :method => :get do %>
+    <th></th>
+    <th></th>
+    <th><h3>Add a filter</h3></th>
+    <th><%= text_field_tag :filter_status %></th>
+    <th><%= text_field_tag :filter_color %></th>
+    <th><%= text_field_tag :filter_height %></th>
+    <th><%= submit_tag 'Filter' %></th>
+    <% end %>
+  </tr>
+
   <tr>
     <th>Title</th>
     <th>Longitude</th>
     <th>Latitude</th>
     <th>Status</th>
+    <th>Color</th>
+    <th>Height</th>
   </tr>
  
   <% @parkingmeters.each do |parkingmeter| %>
@@ -16,8 +30,12 @@ parking meters / index
       <td><%= parkingmeter.longitude %></td>
       <td><%= parkingmeter.latitude %></td>
       <td><%= parkingmeter.status %></td>
+      <td><%= parkingmeter.color %></td>
+      <td><%= parkingmeter.height %></td>
       <td> <%= link_to 'Show', parkingmeter_path(parkingmeter), method: :get %> </td>
       <td> <%= link_to 'Edit', edit_parkingmeter_path(parkingmeter) %> </td>
+      <td> <%= link_to 'Delete', parkingmeter_path(parkingmeter), method: :delete, 
+                        data: {confirm: "are you sure you want to do this?"} %> </td>
     </tr>
     
   <% end %>

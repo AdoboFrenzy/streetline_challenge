@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_224158) do
+ActiveRecord::Schema.define(version: 2018_11_01_011322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2018_10_31_224158) do
     t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color"
+    t.integer "height"
     t.index ["latitude"], name: "index_parkingmeters_on_latitude", unique: true
     t.index ["longitude"], name: "index_parkingmeters_on_longitude", unique: true
     t.index ["name"], name: "index_parkingmeters_on_name", unique: true

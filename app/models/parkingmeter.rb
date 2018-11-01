@@ -13,7 +13,7 @@
 
 class Parkingmeter < ApplicationRecord
 
-    validates :name, :longitude, :latitude, :status, presence: true
+    validates :name, :longitude, :latitude, :status, :color, :height, presence: true
 
 
 end
