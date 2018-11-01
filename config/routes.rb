@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   resources :parkingmeters
 
-  root 'streetline#index'
+  # root 'streetline#index'
 end
